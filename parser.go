@@ -149,6 +149,9 @@ func parseEndpoints(es []*config.EndpointConfig) []Endpoint {
 				if _, ok := b.ExtraConfig["backend/grpc"]; ok {
 					numUnsafeMethods++
 				}
+				if _, ok := b.ExtraConfig["backend/soap"]; ok {
+					numUnsafeMethods++
+				}
 			}
 		}
 
@@ -646,6 +649,45 @@ func parseComponents(cfg config.ExtraConfig) Component { // skipcq: GO-R1005
 
 			if f, ok := cfg["subprotocols"].([]interface{}); ok {
 				d[10] = len(f)
+			}
+			components[c] = d
+		case "backend/soap":
+			cfg, ok := v.(map[string]interface{})
+			if !ok {
+				components[c] = []int{}
+				continue
+			}
+			d := make([]int, 4)
+			if f, ok := cfg["debug"].(bool); ok && f {
+				d[0] = addBit(d[0], 0)
+			}
+			if f, ok := cfg["watch_template"].(bool); ok && f {
+				d[0] = addBit(d[0], 1)
+			}
+			if _, ok := cfg["wsdl"].(map[string]interface{}); ok {
+				d[0] = addBit(d[0], 2)
+			}
+			if s, ok := cfg["soap_action"].(string); ok && s != "" {
+				d[0] = addBit(d[0], 3)
+			}
+			if ws, ok := cfg["ws_security"].(map[string]interface{}); ok {
+				if _, ok := ws["username_token"]; ok {
+					d[1] = addBit(d[1], 0)
+				}
+				if _, ok := ws["saml_assertion"]; ok {
+					d[1] = addBit(d[1], 1)
+				}
+				if _, ok := ws["x509"]; ok {
+					d[1] = addBit(d[1], 2)
+				}
+			}
+			if ct, ok := cfg["content_type"].(string); ok && ct != "" && ct != "text/xml" {
+				d[2] = 1
+			}
+			if _, ok := cfg["path"].(string); ok {
+				d[3] = 1
+			} else if _, ok := cfg["template"].(string); ok {
+				d[3] = 2
 			}
 			components[c] = d
 		case luaproxy.ProxyNamespace, luaproxy.BackendNamespace, luarouter.Namespace:

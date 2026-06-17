@@ -90,6 +90,7 @@ var componentAlias = map[string]string{
 	"modifier/response-body-generator": "3",
 	"validation/response-json-schema":  "4",
 	"websocket":                        "5",
+	"backend/soap":                     "13",
 	"modifier/response-headers":        "6",
 	luaproxy.ProxyNamespace:            "7",
 	luaproxy.BackendNamespace:          "8",

@@ -138,6 +138,32 @@ func ExampleParse() {
 	//         0,
 	//         2000,
 	//         0,
+	//         1
+	//       ],
+	//       "b": [
+	//         {
+	//           "d": [
+	//             32
+	//           ],
+	//           "c": {
+	//             "backend/soap": [
+	//               10,
+	//               1,
+	//               0,
+	//               1
+	//             ]
+	//           }
+	//         }
+	//       ],
+	//       "c": {}
+	//     },
+	//     {
+	//       "d": [
+	//         2,
+	//         0,
+	//         0,
+	//         2000,
+	//         0,
 	//         0
 	//       ],
 	//       "b": [
@@ -392,12 +418,12 @@ func ExampleParse() {
 	//       2,
 	//       0
 	//     ],
-	//     "github_com/velonetics/velonetics/transport/http/server/handler": [
-	//       4
-	//     ],
-	//     "github_com/velonetics/velonetics-influx": [],
 	//     "github_com/luraproject/lura/router/gin": [
 	//       262144
+	//     ],
+	//     "github_com/velonetics/velonetics-influx": [],
+	//     "github_com/velonetics/velonetics/transport/http/server/handler": [
+	//       4
 	//     ],
 	//     "grpc": [
 	//       1

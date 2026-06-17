@@ -332,6 +332,29 @@
       }
     },
     {
+      "endpoint": "/soap/{country}",
+      "backend": [
+        {
+          "url_pattern": "/service.wso",
+          "method": "POST",
+          "encoding": "xml",
+          "extra_config": {
+            "backend/soap": {
+              "path": "./soap.xml",
+              "soap_action": "http://example.com/Op",
+              "watch_template": true,
+              "ws_security": {
+                "username_token": {
+                  "username": "u",
+                  "password": "p"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
       "endpoint": "/cached",
       "backend": [
         {
