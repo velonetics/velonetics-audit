@@ -419,6 +419,67 @@ func hasAllEndpointsAsNoop(s *Service) bool {
 	return true
 }
 
+func isStreamingEndpoint(e Endpoint) bool {
+	if !hasBit(e.Details[0], EncodingNOOP) || len(e.Backends) != 1 {
+		return false
+	}
+	return hasBit(e.Backends[0].Details[0], EncodingNOOP)
+}
+
+func hasStreamingEndpoint(s *Service) bool {
+	for _, e := range s.Endpoints {
+		if isStreamingEndpoint(e) {
+			return true
+		}
+	}
+	return false
+}
+
+func hasStreamingWithMultipleBackends(s *Service) bool {
+	for _, e := range s.Endpoints {
+		if !hasBit(e.Details[0], EncodingNOOP) {
+			continue
+		}
+		if len(e.Backends) > 1 {
+			return true
+		}
+	}
+	return false
+}
+
+func hasLongServiceTimeoutWithStreaming(s *Service) bool {
+	if !hasStreamingEndpoint(s) {
+		return false
+	}
+	if len(s.Details) < 2 {
+		return false
+	}
+	return s.Details[1] > 30000
+}
+
+func hasStreamingWithResponseLua(s *Service) bool {
+	for _, e := range s.Endpoints {
+		if !isStreamingEndpoint(e) {
+			continue
+		}
+		for _, luaNS := range []string{
+			"github.com/velonetics/velonetics-lua/proxy",
+			"github.com/velonetics/velonetics-lua/router",
+		} {
+			if bits, ok := e.Components[luaNS]; ok && len(bits) > 0 && hasBit(bits[0], 1) {
+				return true
+			}
+		}
+		if bits, ok := e.Components["validation/response-json-schema"]; ok && len(bits) > 0 && bits[0] > 0 {
+			return true
+		}
+		if bits, ok := e.Components["modifier/response-body"]; ok && len(bits) > 0 && bits[0] > 0 {
+			return true
+		}
+	}
+	return false
+}
+
 func hasSequentialStart(s *Service) bool {
 	return hasBit(s.Details[0], ServiceSequentialStart) && len(s.Agents) >= 10
 }

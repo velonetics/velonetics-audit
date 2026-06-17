@@ -133,6 +133,9 @@ var ruleSet = []Rule{
 	NewRule("5.2.1", SeverityCritical, "Ensure all endpoints have at least one backend for proper functionality.", hasEndpointWithoutBackends),
 	NewRule("5.2.2", SeverityLow, "Benefit from the backend for frontend pattern capabilities.", hasASingleBackendPerEndpoint),
 	NewRule("5.2.3", SeverityLow, "Avoid coupling clients by overusing no-op encoding.", hasAllEndpointsAsNoop),
+	NewRule("5.2.4", SeverityHigh, "HTTP streaming endpoints require a single no-op backend; multi-backend merge is incompatible.", hasStreamingWithMultipleBackends),
+	NewRule("5.2.5", SeverityMedium, "Avoid long service-level timeouts when streaming endpoints are present; set timeout on the streaming endpoint only.", hasLongServiceTimeoutWithStreaming),
+	NewRule("5.2.6", SeverityHigh, "HTTP streaming is incompatible with response manipulation (Lua post, response schema, response body modifiers).", hasStreamingWithResponseLua),
 
 	/*
 	   Section 6: Async agents.

@@ -79,7 +79,7 @@ func Parse(cfg *config.ServiceConfig) Service {
 	}
 
 	return Service{
-		Details:    []int{v1},
+		Details:    []int{v1, int(cfg.Timeout / time.Millisecond)},
 		Agents:     parseAsyncAgents(cfg.AsyncAgents),
 		Endpoints:  parseEndpoints(cfg.Endpoints),
 		Components: parseComponents(cfg.ExtraConfig),

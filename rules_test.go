@@ -309,3 +309,39 @@ func Test_hasAllEndpointsAsNoop(t *testing.T) {
 		t.Error("false negative")
 	}
 }
+
+func Test_hasStreamingWithMultipleBackends(t *testing.T) {
+	if !hasStreamingWithMultipleBackends(&Service{Endpoints: []Endpoint{{Details: []int{1 << EncodingNOOP}, Backends: []Backend{{}, {}}}}}) {
+		t.Error("expected true for no-op endpoint with multiple backends")
+	}
+	if hasStreamingWithMultipleBackends(&Service{Endpoints: []Endpoint{{Details: []int{1 << EncodingNOOP}, Backends: []Backend{{Details: []int{1 << EncodingNOOP}}}}}}) {
+		t.Error("expected false for valid streaming endpoint")
+	}
+}
+
+func Test_hasLongServiceTimeoutWithStreaming(t *testing.T) {
+	if !hasLongServiceTimeoutWithStreaming(&Service{
+		Details:   []int{0, 60000},
+		Endpoints: []Endpoint{{Details: []int{1 << EncodingNOOP}, Backends: []Backend{{Details: []int{1 << EncodingNOOP}}}}},
+	}) {
+		t.Error("expected true for long service timeout with streaming endpoint")
+	}
+	if hasLongServiceTimeoutWithStreaming(&Service{
+		Details:   []int{0, 2000},
+		Endpoints: []Endpoint{{Details: []int{1 << EncodingNOOP}, Backends: []Backend{{Details: []int{1 << EncodingNOOP}}}}},
+	}) {
+		t.Error("expected false for short service timeout")
+	}
+}
+
+func Test_hasStreamingWithResponseLua(t *testing.T) {
+	if !hasStreamingWithResponseLua(&Service{Endpoints: []Endpoint{{
+		Details: []int{1 << EncodingNOOP},
+		Backends: []Backend{{Details: []int{1 << EncodingNOOP}}},
+		Components: Component{
+			"github.com/velonetics/velonetics-lua/router": {2},
+		},
+	}}}) {
+		t.Error("expected true when streaming endpoint has lua post modifier")
+	}
+}
