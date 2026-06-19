@@ -1,15 +1,15 @@
 {
-  "$schema": "https://velonetics.io/schema/velonetics.json",
+  "$schema": "https://pucora.io/schema/pucora.json",
   "version": 3,
   "debug_endpoint": true,
   "echo_endpoint": true,
   "use_h2c": true,
   "extra_config": {
-    "github_com/velonetics/velonetics-influx":{
+    "github_com/pucora/velonetics-influx":{
       "address":"http://influxdb:8086",
       "ttl":"25s",
       "buffer_size":0,
-      "db": "velonetics",
+      "db": "pucora",
       "username": "your-influxdb-user",
       "password": "your-influxdb-password"
     },
@@ -41,10 +41,10 @@
         "Server"
       ],
       "rename": {
-        "X-Velonetics-Completed": "X-Completed"
+        "X-Pucora-Completed": "X-Completed"
       }
     },
-    "github.com/velonetics/velonetics-lua/router": {
+    "github.com/pucora/velonetics-lua/router": {
       "pre": "some_lua_code()"
     },
     "qos/ratelimit/service": {
@@ -52,7 +52,7 @@
       "client_mac_rate": 5,
       "startegy": "ip"
     },
-    "github_com/velonetics/velonetics/transport/http/server/handler": {
+    "github_com/pucora/pucora/transport/http/server/handler": {
       "name": [
         "basic-auth"
       ]
@@ -196,7 +196,7 @@
       "endpoint": "/protected/resource",
       "timeout": "140s",
       "extra_config": {
-        "github.com/velonetics/velonetics-jose/validator": {
+        "github.com/pucora/velonetics-jose/validator": {
           "alg": "RS256",
           "audience": [
             "http://api.example.com"
@@ -209,7 +209,7 @@
           "jwk_url": "https://albert-test.auth0.com/.well-known/jwks.json",
           "cache": true
         },
-        "github.com/velonetics/velonetics-lua/proxy": {
+        "github.com/pucora/velonetics-lua/proxy": {
           "pre": "some_lua_code()",
           "post": "some_more_lua_code()"
         },
@@ -262,10 +262,10 @@
         {
           "url_pattern": "/",
           "extra_config": {
-            "github.com/velonetics/velonetics-lua/proxy/backend": {
+            "github.com/pucora/velonetics-lua/proxy/backend": {
               "post": "some_lua_code()"
             },
-            "github.com/velonetics/velonetics-httpcache": {}
+            "github.com/pucora/velonetics-httpcache": {}
           }
         }
       ]
@@ -280,7 +280,7 @@
         "*"
       ],
       "extra_config": {
-        "github.com/velonetics/velonetics/transport/http/client/executor": {
+        "github.com/pucora/pucora/transport/http/client/executor": {
           "name": "no-redirect"
         }
       },
@@ -360,7 +360,7 @@
         {
           "url_pattern": "/",
           "extra_config": {
-            "github.com/velonetics/velonetics-httpcache": {
+            "github.com/pucora/velonetics-httpcache": {
               "shared": true,
               "max_items": 100,
               "max_size": 10000
@@ -520,7 +520,7 @@
       "endpoint": "/__catchall",
       "timeout": "10s",
       "extra_config": {
-        "github.com/velonetics/velonetics/proxy": {
+        "github.com/pucora/pucora/proxy": {
           "sequential": true
         }
       },

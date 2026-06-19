@@ -1,25 +1,25 @@
 package audit
 
 import (
-	botdetector "github.com/velonetics/velonetics-botdetector/v2/velonetics"
-	cb "github.com/velonetics/velonetics-circuitbreaker/v3/gobreaker"
-	cors "github.com/velonetics/velonetics-cors/v2"
-	gelf "github.com/velonetics/velonetics-gelf/v2"
-	gologging "github.com/velonetics/velonetics-gologging/v2"
-	httpcache "github.com/velonetics/velonetics-httpcache/v2"
-	httpsecure "github.com/velonetics/velonetics-httpsecure/v2"
-	influx "github.com/velonetics/velonetics-influx/v2"
-	jose "github.com/velonetics/velonetics-jose/v2"
-	logstash "github.com/velonetics/velonetics-logstash/v2"
-	metrics "github.com/velonetics/velonetics-metrics/v2"
-	opencensus "github.com/velonetics/velonetics-opencensus/v2"
-	ratelimitProxy "github.com/velonetics/velonetics-ratelimit/v3/proxy"
-	ratelimit "github.com/velonetics/velonetics-ratelimit/v3/router"
-	"github.com/velonetics/lura/v2/proxy"
-	"github.com/velonetics/lura/v2/proxy/plugin"
-	router "github.com/velonetics/lura/v2/router/gin"
-	client "github.com/velonetics/lura/v2/transport/http/client/plugin"
-	server "github.com/velonetics/lura/v2/transport/http/server/plugin"
+	botdetector "github.com/pucora/velonetics-botdetector/v2/pucora"
+	cb "github.com/pucora/velonetics-circuitbreaker/v3/gobreaker"
+	cors "github.com/pucora/velonetics-cors/v2"
+	gelf "github.com/pucora/velonetics-gelf/v2"
+	gologging "github.com/pucora/velonetics-gologging/v2"
+	httpcache "github.com/pucora/velonetics-httpcache/v2"
+	httpsecure "github.com/pucora/velonetics-httpsecure/v2"
+	influx "github.com/pucora/velonetics-influx/v2"
+	jose "github.com/pucora/velonetics-jose/v2"
+	logstash "github.com/pucora/velonetics-logstash/v2"
+	metrics "github.com/pucora/velonetics-metrics/v2"
+	opencensus "github.com/pucora/velonetics-opencensus/v2"
+	ratelimitProxy "github.com/pucora/velonetics-ratelimit/v3/proxy"
+	ratelimit "github.com/pucora/velonetics-ratelimit/v3/router"
+	"github.com/pucora/lura/v2/proxy"
+	"github.com/pucora/lura/v2/proxy/plugin"
+	router "github.com/pucora/lura/v2/router/gin"
+	client "github.com/pucora/lura/v2/transport/http/client/plugin"
+	server "github.com/pucora/lura/v2/transport/http/server/plugin"
 )
 
 func hasBit(x, y int) bool {
@@ -463,8 +463,8 @@ func hasStreamingWithResponseLua(s *Service) bool {
 			continue
 		}
 		for _, luaNS := range []string{
-			"github.com/velonetics/velonetics-lua/proxy",
-			"github.com/velonetics/velonetics-lua/router",
+			"github.com/pucora/velonetics-lua/proxy",
+			"github.com/pucora/velonetics-lua/router",
 		} {
 			if bits, ok := e.Components[luaNS]; ok && len(bits) > 0 && hasBit(bits[0], 1) {
 				return true

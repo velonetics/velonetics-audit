@@ -7,16 +7,16 @@ import (
 	"testing"
 	"time"
 
-	bf "github.com/velonetics/bloomfilter/v2/velonetics"
-	botdetector "github.com/velonetics/velonetics-botdetector/v2/velonetics"
-	opencensus "github.com/velonetics/velonetics-opencensus/v2"
-	ratelimit "github.com/velonetics/velonetics-ratelimit/v3/router"
-	"github.com/velonetics/lura/v2/config"
-	"github.com/velonetics/lura/v2/proxy"
-	"github.com/velonetics/lura/v2/proxy/plugin"
-	router "github.com/velonetics/lura/v2/router/gin"
-	client "github.com/velonetics/lura/v2/transport/http/client/plugin"
-	server "github.com/velonetics/lura/v2/transport/http/server/plugin"
+	bf "github.com/pucora/bloomfilter/v2/pucora"
+	botdetector "github.com/pucora/velonetics-botdetector/v2/pucora"
+	opencensus "github.com/pucora/velonetics-opencensus/v2"
+	ratelimit "github.com/pucora/velonetics-ratelimit/v3/router"
+	"github.com/pucora/lura/v2/config"
+	"github.com/pucora/lura/v2/proxy"
+	"github.com/pucora/lura/v2/proxy/plugin"
+	router "github.com/pucora/lura/v2/router/gin"
+	client "github.com/pucora/lura/v2/transport/http/client/plugin"
+	server "github.com/pucora/lura/v2/transport/http/server/plugin"
 )
 
 func intn(k int) int {

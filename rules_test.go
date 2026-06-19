@@ -3,20 +3,20 @@ package audit
 import (
 	"testing"
 
-	botdetector "github.com/velonetics/velonetics-botdetector/v2/velonetics"
-	cb "github.com/velonetics/velonetics-circuitbreaker/v3/gobreaker"
-	cors "github.com/velonetics/velonetics-cors/v2"
-	gelf "github.com/velonetics/velonetics-gelf/v2"
-	gologging "github.com/velonetics/velonetics-gologging/v2"
-	httpsecure "github.com/velonetics/velonetics-httpsecure/v2"
-	jose "github.com/velonetics/velonetics-jose/v2"
-	logstash "github.com/velonetics/velonetics-logstash/v2"
-	metrics "github.com/velonetics/velonetics-metrics/v2"
-	opencensus "github.com/velonetics/velonetics-opencensus/v2"
-	ratelimitProxy "github.com/velonetics/velonetics-ratelimit/v3/proxy"
-	ratelimit "github.com/velonetics/velonetics-ratelimit/v3/router"
-	router "github.com/velonetics/lura/v2/router/gin"
-	server "github.com/velonetics/lura/v2/transport/http/server/plugin"
+	botdetector "github.com/pucora/velonetics-botdetector/v2/pucora"
+	cb "github.com/pucora/velonetics-circuitbreaker/v3/gobreaker"
+	cors "github.com/pucora/velonetics-cors/v2"
+	gelf "github.com/pucora/velonetics-gelf/v2"
+	gologging "github.com/pucora/velonetics-gologging/v2"
+	httpsecure "github.com/pucora/velonetics-httpsecure/v2"
+	jose "github.com/pucora/velonetics-jose/v2"
+	logstash "github.com/pucora/velonetics-logstash/v2"
+	metrics "github.com/pucora/velonetics-metrics/v2"
+	opencensus "github.com/pucora/velonetics-opencensus/v2"
+	ratelimitProxy "github.com/pucora/velonetics-ratelimit/v3/proxy"
+	ratelimit "github.com/pucora/velonetics-ratelimit/v3/router"
+	router "github.com/pucora/lura/v2/router/gin"
+	server "github.com/pucora/lura/v2/transport/http/server/plugin"
 )
 
 func Test_hasBasicAuth(t *testing.T) {
@@ -339,7 +339,7 @@ func Test_hasStreamingWithResponseLua(t *testing.T) {
 		Details: []int{1 << EncodingNOOP},
 		Backends: []Backend{{Details: []int{1 << EncodingNOOP}}},
 		Components: Component{
-			"github.com/velonetics/velonetics-lua/router": {2},
+			"github.com/pucora/velonetics-lua/router": {2},
 		},
 	}}}) {
 		t.Error("expected true when streaming endpoint has lua post modifier")

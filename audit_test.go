@@ -3,7 +3,7 @@ package audit
 import (
 	"testing"
 
-	"github.com/velonetics/lura/v2/config"
+	"github.com/pucora/lura/v2/config"
 )
 
 func TestAudit_all(t *testing.T) {

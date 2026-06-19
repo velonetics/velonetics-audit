@@ -1,27 +1,27 @@
-module github.com/velonetics/velonetics-audit
+module github.com/pucora/velonetics-audit
 
 go 1.25.0
 
 require (
 	github.com/go-viper/mapstructure/v2 v2.5.0
-	github.com/velonetics/bloomfilter/v2 v2.0.0
-	github.com/velonetics/velonetics-botdetector/v2 v2.0.0
-	github.com/velonetics/velonetics-circuitbreaker/v3 v3.0.0
-	github.com/velonetics/velonetics-cors/v2 v2.0.0
-	github.com/velonetics/velonetics-gelf/v2 v2.0.0
-	github.com/velonetics/velonetics-gologging/v2 v2.0.0
-	github.com/velonetics/velonetics-httpcache/v2 v2.0.0
-	github.com/velonetics/velonetics-httpsecure/v2 v2.0.0
-	github.com/velonetics/velonetics-influx/v2 v2.0.0
-	github.com/velonetics/velonetics-jose/v2 v2.0.0
-	github.com/velonetics/velonetics-logstash/v2 v2.0.0
-	github.com/velonetics/velonetics-lua/v2 v2.0.0
-	github.com/velonetics/velonetics-metrics/v2 v2.0.0
-	github.com/velonetics/velonetics-opencensus/v2 v2.0.0
-	github.com/velonetics/velonetics-ratelimit/v3 v3.0.0
-	github.com/velonetics/velonetics-rss/v2 v2.0.0
-	github.com/velonetics/velonetics-xml/v2 v2.0.0
-	github.com/velonetics/lura/v2 v2.0.0
+	github.com/pucora/bloomfilter/v2 v2.0.0
+	github.com/pucora/velonetics-botdetector/v2 v2.0.0
+	github.com/pucora/velonetics-circuitbreaker/v3 v3.0.0
+	github.com/pucora/velonetics-cors/v2 v2.0.0
+	github.com/pucora/velonetics-gelf/v2 v2.0.0
+	github.com/pucora/velonetics-gologging/v2 v2.0.0
+	github.com/pucora/velonetics-httpcache/v2 v2.0.0
+	github.com/pucora/velonetics-httpsecure/v2 v2.0.0
+	github.com/pucora/velonetics-influx/v2 v2.0.0
+	github.com/pucora/velonetics-jose/v2 v2.0.0
+	github.com/pucora/velonetics-logstash/v2 v2.0.0
+	github.com/pucora/velonetics-lua/v2 v2.0.0
+	github.com/pucora/velonetics-metrics/v2 v2.0.0
+	github.com/pucora/velonetics-opencensus/v2 v2.0.0
+	github.com/pucora/velonetics-ratelimit/v3 v3.0.0
+	github.com/pucora/velonetics-rss/v2 v2.0.0
+	github.com/pucora/velonetics-xml/v2 v2.0.0
+	github.com/pucora/lura/v2 v2.0.0
 )
 
 require (
@@ -99,11 +99,11 @@ require (
 	github.com/influxdata/influxdb v1.11.6 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.9 // indirect
-	github.com/velonetics/binder v1.0.0 // indirect
-	github.com/velonetics/flatmap v1.0.0 // indirect
-	github.com/velonetics/go-auth0/v2 v2.0.0 // indirect
-	github.com/velonetics/httpcache v1.0.0 // indirect
-	github.com/velonetics/lru v1.0.0 // indirect
+	github.com/pucora/binder v1.0.0 // indirect
+	github.com/pucora/flatmap v1.0.0 // indirect
+	github.com/pucora/go-auth0/v2 v2.0.0 // indirect
+	github.com/pucora/httpcache v1.0.0 // indirect
+	github.com/pucora/lru v1.0.0 // indirect
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect

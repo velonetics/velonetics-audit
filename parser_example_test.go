@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/velonetics/lura/v2/config"
+	"github.com/pucora/lura/v2/config"
 )
 
 func ExampleParse() {
@@ -41,18 +41,18 @@ func ExampleParse() {
 	//             64
 	//           ],
 	//           "c": {
-	//             "github.com/velonetics/velonetics-httpcache": [
+	//             "github.com/pucora/velonetics-httpcache": [
 	//               0
 	//             ],
-	//             "github.com/velonetics/velonetics-lua/proxy/backend": [
+	//             "github.com/pucora/velonetics-lua/proxy/backend": [
 	//               2
 	//             ]
 	//           }
 	//         }
 	//       ],
 	//       "c": {
-	//         "github.com/velonetics/velonetics-jose/validator": [],
-	//         "github.com/velonetics/velonetics-lua/proxy": [
+	//         "github.com/pucora/velonetics-jose/validator": [],
+	//         "github.com/pucora/velonetics-lua/proxy": [
 	//           3
 	//         ],
 	//         "modifier/response-body": [
@@ -93,7 +93,7 @@ func ExampleParse() {
 	//         }
 	//       ],
 	//       "c": {
-	//         "github.com/velonetics/velonetics/transport/http/client/executor": [
+	//         "github.com/pucora/pucora/transport/http/client/executor": [
 	//           1
 	//         ]
 	//       }
@@ -172,7 +172,7 @@ func ExampleParse() {
 	//             64
 	//           ],
 	//           "c": {
-	//             "github.com/velonetics/velonetics-httpcache": [
+	//             "github.com/pucora/velonetics-httpcache": [
 	//               7
 	//             ]
 	//           }
@@ -398,7 +398,7 @@ func ExampleParse() {
 	//         }
 	//       ],
 	//       "c": {
-	//         "github.com/velonetics/velonetics/proxy": [
+	//         "github.com/pucora/pucora/proxy": [
 	//           1
 	//         ]
 	//       }
@@ -410,7 +410,7 @@ func ExampleParse() {
 	//       3
 	//     ],
 	//     "auth/api-keys": [],
-	//     "github.com/velonetics/velonetics-lua/router": [
+	//     "github.com/pucora/velonetics-lua/router": [
 	//       1
 	//     ],
 	//     "github_com/devopsfaith/bloomfilter": [
@@ -421,8 +421,8 @@ func ExampleParse() {
 	//     "github_com/luraproject/lura/router/gin": [
 	//       262144
 	//     ],
-	//     "github_com/velonetics/velonetics-influx": [],
-	//     "github_com/velonetics/velonetics/transport/http/server/handler": [
+	//     "github_com/pucora/velonetics-influx": [],
+	//     "github_com/pucora/pucora/transport/http/server/handler": [
 	//       4
 	//     ],
 	//     "grpc": [

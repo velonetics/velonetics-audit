@@ -3,7 +3,7 @@ package audit
 import (
 	"fmt"
 
-	"github.com/velonetics/lura/v2/config"
+	"github.com/pucora/lura/v2/config"
 )
 
 func ExampleAudit() {
@@ -46,8 +46,8 @@ func ExampleAudit() {
 	// 15: 5.1.5 MEDIUM  	Declare explicit endpoints instead of using /__catchall.
 	// 16: 5.1.6 MEDIUM  	Avoid using multiple write methods in endpoint definitions.
 	// 17: 5.1.7 MEDIUM  	Avoid using sequential proxy.
-	// 18: 7.1.3 HIGH  	Avoid using deprecated plugin basic-auth. Please move your configuration to the namespace auth/basic to use the new component. See: https://velonetics.io/docs/enterprise/authentication/basic-authentication/ .
-	// 19: 7.1.7 HIGH  	Avoid using deprecated plugin no-redirect. Please visit https://velonetics.io/docs/enterprise/backends/client-redirect/#migration-from-old-plugin to upgrade to the new options.
+	// 18: 7.1.3 HIGH  	Avoid using deprecated plugin basic-auth. Please move your configuration to the namespace auth/basic to use the new component. See: https://pucora.io/docs/enterprise/authentication/basic-authentication/ .
+	// 19: 7.1.7 HIGH  	Avoid using deprecated plugin no-redirect. Please visit https://pucora.io/docs/enterprise/backends/client-redirect/#migration-from-old-plugin to upgrade to the new options.
 	// 20: 7.3.1 MEDIUM  	Avoid using 'private_key' and 'public_key' and use the 'keys' array.
 }
 
@@ -74,7 +74,7 @@ func ExampleAudit_cb() {
 
 	// output:
 	// 00: 1.2.1 HIGH  	Prioritize using JWT for endpoint authorization to ensure security.
-	// 01: 2.1.2 HIGH  	Enable TLS or use a terminator in front of Velonetics.
+	// 01: 2.1.2 HIGH  	Enable TLS or use a terminator in front of Pucora.
 	// 02: 2.1.7 HIGH  	Enable HTTP security header checks (security/http).
 	// 03: 2.2.1 MEDIUM  	Hide the version banner in runtime.
 	// 04: 2.2.2 HIGH  	Enable CORS.

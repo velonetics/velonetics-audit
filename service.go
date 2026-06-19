@@ -1,7 +1,7 @@
 package audit
 
-// Service represents a Velonetics configuration as a tree of bitsets representing
-// which components and flags are enabled at the Velonetics configuration
+// Service represents a Pucora configuration as a tree of bitsets representing
+// which components and flags are enabled at the Pucora configuration
 type Service struct {
 	Details    []int      `json:"d"`
 	Agents     []Agent    `json:"a"`
